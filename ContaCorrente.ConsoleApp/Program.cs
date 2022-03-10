@@ -7,8 +7,8 @@ namespace ContaCorrente.ConsoleApp
         static void Main(string[] args)
         {
             ContaCorrente conta1 = new ContaCorrente();
-            conta1.saldo = 0;
-            conta1.numero = 0;
+            conta1.saldo = 1000;
+            conta1.numero = 11;
             conta1.limite = 0;
             conta1.ehEspecial = true;
            
@@ -20,8 +20,8 @@ namespace ContaCorrente.ConsoleApp
 
 
             ContaCorrente conta2 = new ContaCorrente();
-            conta2.saldo = 0;
-            conta2.numero = 0;
+            conta2.saldo = 300;
+            conta2.numero = 10;
             conta2.limite = 0;
             conta2.ehEspecial = true;
             
@@ -31,6 +31,9 @@ namespace ContaCorrente.ConsoleApp
             conta1.TransferirPara(conta2, 400);
 
             conta1.ExibirExtrato();
+
+
+            Console.ReadLine();
         }
     }
 }

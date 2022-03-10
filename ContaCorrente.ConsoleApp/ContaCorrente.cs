@@ -79,26 +79,28 @@ namespace ContaCorrente.ConsoleApp
 
         public void ExibirExtrato()
         {
+
+            if (ehEspecial == true)
+            {
+                Console.WriteLine("Conta especial.");
+            }
+            else
+            {
+                Console.WriteLine("Conta não especial");
+            }
+
             for (int i = 0; i < contador; i++)
             {
-                if (ehEspecial == true)
-                {
-                    Console.WriteLine("Conta especial.");
-                }
-                else
-                {
-                    Console.WriteLine("Conta não especial");
-                }
+                Console.WriteLine("----------------------------------------------------------");
+                Console.WriteLine("O tipo é: " + movimentacao[i].tipo);
+                Console.WriteLine("O saldo da conta é: " + movimentacao[i].saldo);
+                Console.WriteLine("O valor é: R$" + movimentacao[i].valor);
 
-
-                Console.WriteLine("O tipo é: " + movimentacao[contador].tipo);
-                Console.WriteLine("O saldo da conta é: " + movimentacao[contador].saldo);
-                Console.WriteLine("O valor é: R$" + movimentacao[contador].valor);
 
             }
 
 
-
+            
         }
 
 
