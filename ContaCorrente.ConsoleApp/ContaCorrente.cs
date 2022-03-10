@@ -96,7 +96,6 @@ namespace ContaCorrente.ConsoleApp
                 Console.WriteLine("O saldo da conta é: " + movimentacao[i].saldo);
                 Console.WriteLine("O valor é: R$" + movimentacao[i].valor);
 
-
             }
 
 
