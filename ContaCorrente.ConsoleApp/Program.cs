@@ -7,10 +7,10 @@ namespace ContaCorrente.ConsoleApp
         static void Main(string[] args)
         {
             ContaCorrente conta1 = new ContaCorrente();
-            conta1.saldo = 1000;
-            conta1.numero = 11;
-            conta1.limite = 0;
-            conta1.ehEspecial = true;
+            conta1.Saldo = 1000;
+            conta1.Numero = 11;
+            conta1.Limite = 0;
+            conta1.EhEspecial = true;
            
 
             conta1.Saque(200);
@@ -20,10 +20,10 @@ namespace ContaCorrente.ConsoleApp
 
 
             ContaCorrente conta2 = new ContaCorrente();
-            conta2.saldo = 300;
-            conta2.numero = 10;
-            conta2.limite = 0;
-            conta2.ehEspecial = true;
+            conta2.Saldo = 300;
+            conta2.Numero = 10;
+            conta2.Limite = 0;
+            conta2.EhEspecial = true;
             
 
 

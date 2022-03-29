@@ -8,55 +8,75 @@ namespace ContaCorrente.ConsoleApp
 {
     public class ContaCorrente
     {
-        public double saldo;
-        public int numero;
-        public double limite;
-        public bool ehEspecial;
-        public Movimentacoes[] movimentacao = new Movimentacoes[10];
-        int contador = 0;
+        private double _saldo;
+        private int _numero;
+        private double _limite;
+        private bool _ehEspecial;
+        private Movimentacoes[] movimentacao = new Movimentacoes[10];
+        private int contador = 0;
 
 
+
+        public double Saldo
+        {
+            set { _saldo = value; }
+        }
+
+        public int Numero
+        {
+            set { _numero = value; }
+        }
+
+        public double Limite
+        {
+            set { _limite = value; }
+        }
+
+        public bool EhEspecial
+        {
+            set { _ehEspecial = value; }
+        }
 
         public double Saque(double saldoSaque)
         {
             movimentacao[contador] = new Movimentacoes();
 
 
-            if (saldoSaque > saldo + limite)
+            if (saldoSaque > _saldo + _limite)
             {
                 Console.WriteLine("Não é possivel fazer o saque, seu saldo é insuficiente!!!");
             }
             else
             {
-                movimentacao[contador].tipo = Movimentacoes.TipoMovimentacao.Saque;
+                movimentacao[contador].Tipo = Movimentacoes.TipoMovimentacao.Saque;
 
-                movimentacao[contador].valor = saldoSaque;
+                movimentacao[contador].Valor = saldoSaque;
 
-                movimentacao[contador].saldo = saldo;
+                movimentacao[contador].Saldo = _saldo;
 
                 contador++;
                 Console.WriteLine("Saque efetuado com sucesso!!!");
             }
 
 
-            return saldo;
+            return _saldo;
         }
 
 
         public double Deposito(double saldoDeposito)
         {
-            saldo += saldoDeposito;
+            _saldo += saldoDeposito;
 
             movimentacao[contador] = new Movimentacoes();
 
-            movimentacao[contador].tipo = Movimentacoes.TipoMovimentacao.Deposito;
+            movimentacao[contador].Tipo = Movimentacoes.TipoMovimentacao.Deposito;
 
-            movimentacao[contador].valor = saldoDeposito;
+            movimentacao[contador].Valor = saldoDeposito;
 
-            movimentacao[contador].saldo = saldo;
+            movimentacao[contador].Saldo = _saldo;
             
             contador++;
-            return saldo;
+            return _saldo;
         }
 
         public void TransferirPara(ContaCorrente conta, double tranferencia)
@@ -64,14 +84,14 @@ namespace ContaCorrente.ConsoleApp
 
             movimentacao[contador] = new Movimentacoes();
 
-            saldo -= tranferencia;
-            conta.saldo += tranferencia;
+            _saldo -= tranferencia;
+            conta._saldo += tranferencia;
 
-            movimentacao[contador].tipo = Movimentacoes.TipoMovimentacao.Tranferencia;
+            movimentacao[contador].Tipo = Movimentacoes.TipoMovimentacao.Tranferencia;
 
-            movimentacao[contador].valor = tranferencia;
+            movimentacao[contador].Valor = tranferencia;
 
-            movimentacao[contador].saldo = saldo;
+            movimentacao[contador].Saldo = _saldo;
 
             contador++;
 
@@ -80,7 +100,7 @@ namespace ContaCorrente.ConsoleApp
         public void ExibirExtrato()
         {
 
-            if (ehEspecial == true)
+            if (_ehEspecial == true)
             {
                 Console.WriteLine("Conta especial.");
             }
@@ -92,9 +112,9 @@ namespace ContaCorrente.ConsoleApp
             for (int i = 0; i < contador; i++)
             {
                 Console.WriteLine("----------------------------------------------------------");
-                Console.WriteLine("O tipo é: " + movimentacao[i].tipo);
-                Console.WriteLine("O saldo da conta é: " + movimentacao[i].saldo);
-                Console.WriteLine("O valor é: R$" + movimentacao[i].valor);
+                Console.WriteLine("O tipo é: " + movimentacao[i].Tipo);
+                Console.WriteLine("O saldo da conta é: " + movimentacao[i].Saldo);
+                Console.WriteLine("O valor é: R$" + movimentacao[i].Valor);
 
             }
 
